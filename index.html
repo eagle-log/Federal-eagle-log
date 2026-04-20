@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Ventures | Logistics & Strategy</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #d4af37;
+            --text: #333;
+            --light: #f4f7f6;
+            --white: #ffffff;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--white);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: bold; font-size: 1.4rem; color: var(--primary); letter-spacing: 1px; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), 
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { background: #b8962d; transform: translateY(-2px); }
+
+        /* Tracking Section */
+        .section-padding { padding: 60px 10%; }
+        
+        .tracking-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: -50px auto 0; /* Overlaps Hero slightly */
+            position: relative;
+            z-index: 10;
+        }
+
+        .tracking-form { display: flex; gap: 10px; margin-top: 20px; }
+        .tracking-form input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+
+        /* Resource Library */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .download-link { color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+
+        /* Standard Section Headers */
+        .section-title { text-align: center; color: var(--primary); margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .section-title div { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GLOBAL VENTURES</div>
+        <nav>
+            <a href="#tracking">Tracking</a>
+            <a href="#resources">Resources</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Precision in Logistics, Clarity in Strategy</h1>
+        <p>Seamlessly managing your global supply chain and business expansion.</p>
+    </section>
+
+    <section class="section-padding" id="tracking">
+        <div class="tracking-box">
+            <h3 style="margin-top: 0; color: var(--primary);">Real-Time Shipment Tracking</h3>
+            <p style="color: #666; font-size: 0.9rem;">Enter your Waybill or Reference Number to check status.</p>
+            <div class="tracking-form">
+                <input type="text" placeholder="e.g. GV-882934-LX">
+                <button class="btn" onclick="alert('Tracking system integrated. Database connection required for live updates.')">Track Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="resources">
+        <div class="section-title">
+            <h2>Resource Library</h2>
+            <div></div>
+            <p>Download essential templates and regulatory guides.</p>
+        </div>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div>
+                    <strong style="display: block;">Standard Waybill Template</strong>
+                    <span style="font-size: 0.8rem; color: #777;">PDF | 1.2 MB</span>
+                </div>
+                <a href="#" class="download-link">DOWNLOAD</a>
+            </div>
+            <div class="resource-card">
+                <div>
+                    <strong style="display: block;">Incoterms 2026 Guide</strong>
+                    <span style="font-size: 0.8rem; color: #777;">PDF | 2.5 MB</span>
+                </div>
+                <a href="#" class="download-link">DOWNLOAD</a>
+            </div>
+            <div class="resource-card">
+                <div>
+                    <strong style="display: block;">Customs Documentation Checklist</strong>
+                    <span style="font-size: 0.8rem; color: #777;">DOCX | 800 KB</span>
+                </div>
+                <a href="#" class="download-link">DOWNLOAD</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="about" style="background: #fff;">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="color: var(--primary);">About Global Ventures</h2>
+            <p>We provide a specialized bridge for businesses navigating the complexities of international trade. From strategic market analysis for automotive startups to precise logistics documentation for established firms, our goal is to eliminate the friction in your growth journey.</p>
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact">
+        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; color: var(--primary);">Start a Conversation</h2>
+            <form>
+                <input type="text" placeholder="Your Name" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd;">
+                <input type="email" placeholder="Email Address" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd;">
+                <textarea placeholder="How can we help your business?" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; height:100px;"></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Global Ventures | Cincinnati • Karachi • International</p>
+    </footer>
+
+</body>
+</html>
+<section class="section-padding" id="contact">
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; color: var(--primary);">Start a Conversation</h2>
+        
+        <form action="https://formspree.io/f/xpqklrkz" method="POST">
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
+            <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
+            <input type="email" name="_replyto" placeholder="email@example.com" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">How can we help your business?</label>
+            <textarea name="message" placeholder="Describe your logistics or strategy needs..." required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; height:100px; box-sizing: border-box;"></textarea>
+            
+            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
