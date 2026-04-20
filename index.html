@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Ventures | Logistics & Strategy</title>
     <style>
+/* FORCE MOBILE STACKING */
+@media (max-width: 768px) {
+    .container, .row, section, .grid-layout {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+    }
+    
+    body {
+        overflow-x: hidden !important; /* Stops the side-sliding */
+        width: 100vw;
+    }
+
+    /* This ensures the Resource Library cards don't push the screen wide */
+    .resource-card, .card {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+}
+
         :root {
             --primary: #1a365d;
             --accent: #d4af37;
@@ -345,6 +366,44 @@ body, html {
     word-wrap: break-word; /* Ensures text inside the tracking box stays inside the box */
     max-width: 100%;
 }
+<script>
+function trackShipment() {
+    const input = document.querySelector('.tracking-input').value.trim();
+    const resultDiv = document.getElementById('tracking-result');
+    const validWaybills = ["GV-6460748-US", "XY646071448"];
+
+    if (validWaybills.includes(input)) {
+        const storageKey = 'start_date_' + input;
+        let firstTrackDate = localStorage.getItem(storageKey);
+        
+        if (!firstTrackDate) {
+            firstTrackDate = new Date().getTime();
+            localStorage.setItem(storageKey, firstTrackDate);
+        }
+
+        const now = new Date().getTime();
+        const twoDays = 2 * 24 * 60 * 60 * 1000;
+        const timeElapsed = now - firstTrackDate;
+
+        // Default: Europe Hub | After 2 Days: JFK New York
+        let status = (timeElapsed >= twoDays) ? "ARRIVED AT HUB" : "IN TRANSIT";
+        let location = (timeElapsed >= twoDays) ? "JFK Airport, New York" : "Europe Hub";
+        let progress = (timeElapsed >= twoDays) ? "90%" : "65%";
+
+        resultDiv.innerHTML = `
+            <div style="margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:8px; background:#fff; text-align:left;">
+                <p style="color:#27ae60; font-weight:bold; margin-bottom:5px;">Status: ${status}</p>
+                <div style="width:100%; background:#eee; height:10px; border-radius:5px; margin-bottom:10px;">
+                    <div style="width:${progress}; background:#27ae60; height:100%; border-radius:5px;"></div>
+                </div>
+                <p style="font-size:0.9em;">Location: <strong>${location}</strong></p>
+                <p style="font-size:0.8em; color:#666;">Waybill: ${input}</p>
+            </div>`;
+    } else {
+        resultDiv.innerHTML = "<p style='color:red; margin-top:10px;'>Invalid Waybill Number.</p>";
+    }
+}
+</script>
 
 </body>
 </html>
