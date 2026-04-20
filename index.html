@@ -81,7 +81,7 @@
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            max-width: 800px;
+            max-width: 100px;
             margin: -50px auto 0; /* Overlaps Hero slightly */
             position: relative;
             z-index: 10;
@@ -223,7 +223,7 @@
 </body>
 </html>
 <section class="section-padding" id="contact">
-    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    <div style="max-width: 100px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
         <h2 style="text-align: center; color: var(--primary);">Start a Conversation</h2>
         
         <form action="https://formspree.io/f/xpqklrkz" method="POST">
@@ -247,7 +247,7 @@ function trackShipment() {
     const resultDiv = document.getElementById('tracking-result');
 
     // The specific waybill number you want to track
-    const validWaybill = "GV-6460748-US";
+    const validWaybill = ["GV-6460748-US", "XY646071448"];
 
     if (input === validWaybill) {
         resultDiv.innerHTML = `
@@ -260,6 +260,65 @@ function trackShipment() {
         resultDiv.innerHTML = "<p style='color: orange;'>Please enter a tracking number.</p>";
     } else {
         resultDiv.innerHTML = "<p style='color: red;'>Waybill number not found. Please check and try again.</p>";
+    }
+}
+</script>
+<script<script>
+function trackShipment() {
+    const input = document.querySelector('.tracking-input').value.trim();
+    const resultDiv = document.getElementById('tracking-result');
+    const validWaybill = ["GV-6460748-US", "XY646071448"];
+
+    if (input === validWaybill) {
+        // 1. Check if we have seen this device before
+        let firstTrackDate = localStorage.getItem('tracking_start_date');
+        
+        if (!firstTrackDate) {
+            // First time tracking! Save today's date
+            firstTrackDate = new Date().getTime();
+            localStorage.setItem('tracking_start_date', firstTrackDate);
+        }
+
+        // 2. Calculate time difference
+        const now = new Date().getTime();
+        const twoDaysInMilliseconds = 2 * 24 * 60 * 60 * 1000;
+        const timeElapsed = now - firstTrackDate;
+
+        // 3. Default (Under 2 days): Europe Hub
+        let statusTitle = "IN TRANSIT";
+        let locationText = "Package is currently at the distribution center in <strong>Europe Hub</strong>.";
+        let progressWidth = "65%";
+        let lastEvent = "Departed International Sort Facility";
+        let displayDate = "April 20, 2026"; // Initial Date
+
+        // 4. Update (Over 2 days): JFK Airport
+        if (timeElapsed >= twoDaysInMilliseconds) {
+            statusTitle = "ARRIVED AT HUB";
+            locationText = "Package has arrived at <strong>JFK Airport, New York</strong>. Customs clearance in progress.";
+            progressWidth = "90%";
+            lastEvent = "Arrived at Destination Sort Facility - New York (JFK)";
+            displayDate = "April 22, 2026"; // Updated Date
+        }
+
+        resultDiv.innerHTML = `
+            <div style="margin-top: 25px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="font-weight: bold; color: #27ae60;">Status: ${statusTitle}</span>
+                    <span style="color: #666; font-size: 0.9em;">ID: ${validWaybill}</span>
+                </div>
+                
+                <div style="width: 100%; background-color: #e0e0e0; border-radius: 10px; height: 12px; margin: 15px 0;">
+                    <div style="width: ${progressWidth}; background-color: #27ae60; height: 100%; border-radius: 10px; transition: width 2s ease-in-out;"></div>
+                </div>
+                
+                <p style="margin: 0; font-size: 0.9em; color: #333;">${locationText}</p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                <p style="margin: 0; font-size: 0.9em;"><strong>Last Event:</strong> ${lastEvent}</p>
+                <p style="margin: 5px 0 0; font-size: 0.85em; color: #666;">${displayDate} - Updated Recently</p>
+            </div>`;
+    } else {
+        resultDiv.innerHTML = "<p style='color: red; margin-top: 10px;'>Waybill number not recognized.</p>";
     }
 }
 </script>
