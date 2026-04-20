@@ -219,27 +219,13 @@
     <footer>
         <p>&copy; 2026 Global Ventures | Cincinnati • Karachi • International</p>
     </footer>
+    
+<script>
+function trackShipment() {
+    // ... all the tracking logic I gave you ...
+}
+</script>
 
-</body>
-</html>
-<section class="section-padding" id="contact">
-    <div style="max-width: 100px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <h2 style="text-align: center; color: var(--primary);">Start a Conversation</h2>
-        
-        <form action="https://formspree.io/f/xpqklrkz" method="POST">
-            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
-            <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-            
-            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
-            <input type="email" name="_replyto" placeholder="email@example.com" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-            
-            <label style="display:block; margin-bottom: 5px; font-weight: bold;">How can we help your business?</label>
-            <textarea name="message" placeholder="Describe your logistics or strategy needs..." required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; height:100px; box-sizing: border-box;"></textarea>
-            
-            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Submit Inquiry</button>
-        </form>
-    </div>
-</section>
 <script>
 function trackShipment() {
     // This looks for the input field and the place to show the result
@@ -261,9 +247,9 @@ function trackShipment() {
     } else {
         resultDiv.innerHTML = "<p style='color: red;'>Waybill number not found. Please check and try again.</p>";
     }
-}
 </script>
-<script<script>
+
+<script>
 function trackShipment() {
     const input = document.querySelector('.tracking-input').value.trim();
     const resultDiv = document.getElementById('tracking-result');
@@ -320,5 +306,39 @@ function trackShipment() {
     } else {
         resultDiv.innerHTML = "<p style='color: red; margin-top: 10px;'>Waybill number not recognized.</p>";
     }
-}
 </script>
+
+/* Add this to your <style> tag */
+body, html {
+    overflow-x: hidden; /* Stops horizontal scrolling */
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#tracking-result {
+    word-wrap: break-word; /* Ensures text inside the tracking box stays inside the box */
+    max-width: 100%;
+}
+
+</body>
+</html>
+<section class="section-padding" id="contact">
+    <div style="max-width: 100px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; color: var(--primary);">Start a Conversation</h2>
+        
+        <form action="https://formspree.io/f/xpqklrkz" method="POST">
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
+            <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
+            <input type="email" name="_replyto" placeholder="email@example.com" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            
+            <label style="display:block; margin-bottom: 5px; font-weight: bold;">How can we help your business?</label>
+            <textarea name="message" placeholder="Describe your logistics or strategy needs..." required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ddd; border-radius: 4px; height:100px; box-sizing: border-box;"></textarea>
+            
+            <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
