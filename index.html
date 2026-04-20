@@ -148,10 +148,22 @@
             <h3 style="margin-top: 0; color: var(--primary);">Real-Time Shipment Tracking</h3>
             <p style="color: #666; font-size: 0.9rem;">Enter your Waybill or Reference Number to check status.</p>
             <div class="tracking-form">
-                <input<input type="text" class="tracking-input" placeholder="Enter Waybill Number...">
-<button onclick="trackShipment()">Track Now</button>
+                <div class="tracking-container">
+    <h2>Real-Time Shipment Tracking</h2>
+    <p>Enter your Waybill or Reference Number to check status.</p>
+    
+    <input type="text" class="tracking-input" placeholder="e.g. GV-6460748-US" 
+           style="padding: 10px; width: 80%; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+    
+    <br>
 
-<div id="tracking-result"></div>
+    <button onclick="trackShipment()" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 20px; cursor: pointer;">
+        Track Now
+    </button>
+
+    <div id="tracking-result"></div>
+</div>
+
 
 
     <section class="section-padding" id="resources">
