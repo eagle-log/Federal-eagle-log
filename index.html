@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Ventures | Logistics & Strategy</title>
+    <title>Federal Eagle Logistics | Global Ventures</title>
     <style>
         :root {
             --primary: #1a365d;
@@ -17,8 +17,7 @@
 
         body, html {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--light);
@@ -29,173 +28,202 @@
         /* Navigation */
         header {
             background: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 1rem 10%;
+            display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
-        nav a { text-decoration: none; color: var(--primary); margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
+        .logo { font-weight: bold; font-size: 1.4rem; color: var(--primary); letter-spacing: 1px; }
+        nav a { text-decoration: none; color: var(--primary); margin-left: 20px; font-weight: 500; }
 
-        /* Hero */
+        /* Hero Section with your Images */
         .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85));
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), 
+                        url('IMG_2244.jpeg');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 80px 5%;
+            padding: 100px 10%;
             text-align: center;
         }
 
-        /* Sections */
-        .section-padding { padding: 40px 5%; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
 
+        /* Tracking Box - Fixed UX */
         .tracking-box {
             background: var(--white);
-            padding: 30px;
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: -40px auto 20px;
+            max-width: 600px;
+            margin: -50px auto 40px;
             position: relative;
+            z-index: 10;
         }
 
         .tracking-input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
 
-        .btn {
+        .btn-track {
             background: var(--primary);
             color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
+            padding: 15px;
             width: 100%;
             border: none;
+            border-radius: 30px;
+            font-weight: bold;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        /* Resources */
+        .btn-track:hover { background: #122844; }
+
+        /* Resource Library Grid */
         .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            padding: 20px 0;
         }
 
         .resource-card {
             background: white;
             padding: 20px;
             border-left: 5px solid var(--accent);
+            border-radius: 4px;
+            display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        footer { background: #1a1a1a; color: #888; text-align: center; padding: 30px; }
+        /* About Section Restored */
+        .about-section {
+            background: var(--white);
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .about-content { max-width: 800px; margin: 0 auto; }
+
+        footer { background: #1a1a1a; color: #888; text-align: center; padding: 40px; }
 
         @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
             .hero h1 { font-size: 1.8rem; }
-            header { flex-direction: column; padding: 10px; }
-            nav { margin-top: 10px; }
+            .tracking-box { margin: -30px 20px 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">GLOBAL VENTURES</div>
+        <div class="logo">FEDERAL EAGLE LOGISTICS</div>
         <nav>
             <a href="#tracking">Tracking</a>
             <a href="#resources">Resources</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Precision in Logistics</h1>
-        <p>Managing your global supply chain seamlessly.</p>
+        <h1>Precision in Logistics, Clarity in Strategy</h1>
+        <p>Seamlessly managing your global supply chain and business expansion.</p>
     </section>
 
-    <section class="section-padding" id="tracking">
-        <div class="tracking-box">
-            <h3>Shipment Tracking</h3>
-            <input type="text" class="tracking-input" placeholder="Enter Waybill (e.g. GV-0000000-US)">
-            <button class="btn" onclick="trackShipment()">Track Now</button>
-            <div id="tracking-result"></div>
-        </div>
-    </section>
+    <div class="tracking-box" id="tracking">
+        <h3 style="margin-top:0; color:var(--primary);">Real-Time Shipment Tracking</h3>
+        <p style="color:#666; font-size:0.9rem;">Enter Waybill or Reference Number to check status.</p>
+        <input type="text" class="tracking-input" id="waybillInput" placeholder="Enter Waybill Number">
+        <button class="btn-track" onclick="trackShipment()">TRACK NOW</button>
+        <div id="tracking-result"></div>
+    </div>
 
-    <section class="section-padding" id="resources">
-        <h2 style="text-align:center">Resource Library</h2>
+    <section class="section-padding" id="resources" style="padding: 40px 10%;">
+        <h2 style="color:var(--primary); text-align:center;">Resource Library</h2>
         <div class="resource-grid">
             <div class="resource-card">
-                <div><strong>Waybill Template</strong><br><small>PDF | 1.2 MB</small></div>
-                <a href="#" style="color:var(--accent); font-weight:bold; text-decoration:none;">GET</a>
+                <div><strong>Standard Waybill Template</strong><br><small>PDF | 1.2 MB</small></div>
+                <a href="#" style="color:var(--primary); font-weight:bold; text-decoration:none;">DOWNLOAD</a>
             </div>
             <div class="resource-card">
-                <div><strong>Incoterms 2026</strong><br><small>PDF | 2.5 MB</small></div>
-                <a href="#" style="color:var(--accent); font-weight:bold; text-decoration:none;">GET</a>
+                <div><strong>Incoterms 2026 Guide</strong><br><small>PDF | 2.5 MB</small></div>
+                <a href="#" style="color:var(--primary); font-weight:bold; text-decoration:none;">DOWNLOAD</a>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="contact" style="background: white;">
-        <div style="max-width: 500px; margin: 0 auto;">
-            <h2 style="text-align:center">Contact Us</h2>
-            <form action="https://formspree.io/f/xpqklrkz" method="POST">
-                <input type="text" name="name" placeholder="Name" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd;">
-                <input type="email" name="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ddd;">
-                <textarea name="message" placeholder="Message" required style="width:100%; padding:10px; height:100px; border:1px solid #ddd;"></textarea>
-                <button type="submit" class="btn">Send Inquiry</button>
-            </form>
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2 style="color:var(--primary);">About Federal Eagle</h2>
+            <p>Federal Eagle Logistics is an international Airway/shipping company with its headquarters in Ukraine and branches in other parts of Europe, Asia, and America. We deliver goods and products seamlessly from one destination to another with insurance protection for client goods.</p>
+            <img src="IMG_1539.jpeg" alt="Logistics Operations" style="width:100%; max-width:600px; border-radius:8px; margin-top:20px;">
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Global Ventures | Cincinnati • Karachi
+        <p>&copy; 2026 Federal Eagle Logistics | Cincinnati • Ukraine • Global</p>
     </footer>
 
-    <script>
-    function trackShipment() {
-        const input = document.querySelector('.tracking-input').value.trim();
-        const resultDiv = document.getElementById('tracking-result');
-        const validWaybills = ["GV-6460748-US", "XY646071448"];
+   <script>
+function trackShipment() {
+    const input = document.getElementById('waybillInput').value.trim();
+    const resultDiv = document.getElementById('tracking-result');
+    const validWaybills = ["GV-6460748-US", "XY646071448"];
 
-        if (validWaybills.includes(input)) {
-            const storageKey = 'start_date_' + input;
-            let firstTrackDate = localStorage.getItem(storageKey);
-            
-            if (!firstTrackDate) {
-                firstTrackDate = new Date().getTime();
-                localStorage.setItem(storageKey, firstTrackDate);
-            }
-
-            const now = new Date().getTime();
-            const twoDays = 2 * 24 * 60 * 60 * 1000;
-            const isLate = (now - firstTrackDate) >= twoDays;
-
-            resultDiv.innerHTML = `
-                <div style="margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:8px; background:#f9f9f9; text-align:left;">
-                    <p style="color:#27ae60; font-weight:bold; margin:0;">Status: ${isLate ? 'ARRIVED AT HUB' : 'IN TRANSIT'}</p>
-                    <div style="width:100%; background:#eee; height:8px; border-radius:4px; margin:10px 0;">
-                        <div style="width:${isLate ? '90%' : '65%'}; background:#27ae60; height:100%; border-radius:4px;"></div>
-                    </div>
-                    <p style="font-size:0.85em; margin:0;">Location: <strong>${isLate ? 'JFK Airport, New York' : 'Europe Hub'}</strong></p>
-                </div>`;
-        } else {
-            resultDiv.innerHTML = "<p style='color:red; font-size:0.8em; margin-top:10px;'>Invalid Waybill Number.</p>";
+    if (validWaybills.includes(input)) {
+        // 1. Create a unique key for this specific waybill on this device
+        const storageKey = 'track_start_' + input;
+        let firstTrackDate = localStorage.getItem(storageKey);
+        
+        if (!firstTrackDate) {
+            // First time this device is tracking this number - Save the timestamp
+            firstTrackDate = new Date().getTime();
+            localStorage.setItem(storageKey, firstTrackDate);
         }
+
+        // 2. Calculate time elapsed
+        const now = new Date().getTime();
+        const twoDaysInMs = 2 * 24 * 60 * 60 * 1000;
+        const timeElapsed = now - firstTrackDate;
+
+        // 3. Determine Status based on time elapsed (48 hours)
+        const isArrived = timeElapsed >= twoDaysInMs;
+        
+        const status = isArrived ? "ARRIVED AT HUB" : "IN TRANSIT";
+        const location = isArrived ? "JFK Airport, New York" : "Europe Hub";
+        const progress = isArrived ? "90%" : "65%";
+        const event = isArrived ? "Arrived at Destination Sort Facility" : "Departed International Sort Facility";
+        
+        // 4. Set the display date (Today or +2 days)
+        const dateObj = new Date(parseInt(firstTrackDate) + (isArrived ? twoDaysInMs : 0));
+        const dateString = dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+        resultDiv.innerHTML = `
+            <div style="margin-top:20px; padding:20px; border:1px solid #ddd; border-radius:8px; background:#fff; text-align:left; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-weight: bold; color: #27ae60; font-size: 1.1em;">Status: ${status}</span>
+                    <span style="color: #888; font-size: 0.8em;">ID: ${input}</span>
+                </div>
+                
+                <div style="width: 100%; background-color: #eee; border-radius: 10px; height: 10px; margin: 15px 0; overflow: hidden;">
+                    <div style="width: ${progress}; background-color: #27ae60; height: 100%; border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                </div>
+                
+                <p style="margin: 0; font-size: 0.95em; color: #333;">Current Location: <strong>${location}</strong></p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+                <p style="margin: 0; font-size: 0.9em; color: #444;"><strong>Last Event:</strong> ${event}</p>
+                <p style="margin: 5px 0 0; font-size: 0.85em; color: #999;">${dateString} - System Updated</p>
+            </div>`;
+    } else {
+        resultDiv.innerHTML = "<p style='color: #e74c3c; margin-top: 15px; font-weight: bold;'>Waybill number not recognized.</p>";
     }
-    </script>
-</body>
-</html>
+}
+</script>
