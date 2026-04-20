@@ -228,3 +228,26 @@
         </form>
     </div>
 </section>
+<script>
+function trackShipment() {
+    // This looks for the input field and the place to show the result
+    const input = document.querySelector('.tracking-input').value.trim();
+    const resultDiv = document.getElementById('tracking-result');
+
+    // The specific waybill number you want to track
+    const validWaybill = "GV-6460748-US";
+
+    if (input === validWaybill) {
+        resultDiv.innerHTML = `
+            <div style="margin-top: 20px; padding: 15px; border-left: 5px solid #27ae60; background: #f4fbf7;">
+                <h4 style="color: #27ae60; margin: 0;">Status: In Transit</h4>
+                <p style="margin: 5px 0 0; color: #333;">Package is currently at the distribution center in <strong>Ukraine</strong> heading to <strong>United States</strong>.</p>
+                <small style="color: #666;">Last Updated: April 20, 2026</small>
+            </div>`;
+    } else if (input === "") {
+        resultDiv.innerHTML = "<p style='color: orange;'>Please enter a tracking number.</p>";
+    } else {
+        resultDiv.innerHTML = "<p style='color: red;'>Waybill number not found. Please check and try again.</p>";
+    }
+}
+</script>
